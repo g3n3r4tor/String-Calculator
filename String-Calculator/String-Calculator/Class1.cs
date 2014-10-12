@@ -17,10 +17,18 @@ namespace String_Calculator
             delimiterList.Add("\n");
             if(numbers.Length >=2 && numbers.Substring(0,2) == "//")
             {
-                int index = numbers.IndexOf("\n")-2;
-                delimiterList.Add(numbers.Substring(2,index));
-                delimiterList.Remove("\n");
+                if(numbers.Substring(2,1) == "[")
+                {
+                    int index = numbers.IndexOf("]") - 3;
+                    delimiterList.Add(numbers.Substring(3, index));
+                }
+                else
+                {
+                    int index = numbers.IndexOf("\n") - 2;
+                    delimiterList.Add(numbers.Substring(2, index));
+                }
                 numbers = numbers.Substring(numbers.IndexOf("\n"));
+                
             }
             string[] delimiters = delimiterList.ToArray();
             string[] a = numbers.Split(delimiters,StringSplitOptions.RemoveEmptyEntries);
@@ -58,7 +66,8 @@ namespace String_Calculator
             int sum = 0;
             for (int i = 0; i < a.Length; i++)
             {
-                sum += b[i];
+                if(b[i] < 1001)
+                    sum += b[i];
             }
             return sum;
         }

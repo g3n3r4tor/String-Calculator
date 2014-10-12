@@ -234,6 +234,37 @@ namespace CalculatorTests
             // assert
             Assert.AreEqual("Negatives not allowed: -4,-5", a);
         }
+        [TestMethod]
+        public void TestBigNumber()
+        {
+            // arrange
+            Calculator calc = new Calculator();
+            string s = "1001,2";
+
+            // act
+            int b = 2;
+
+
+            // assert
+            int a = calc.Add(s);
+            Assert.AreEqual(b, a);
+        }
+        [TestMethod]
+        public void TestLongDelimiter()
+        {
+            // arrange
+            Calculator calc = new Calculator();
+            string s = "//[***]\n1***2***3";
+
+            // act
+            int b = 6;
+
+
+            // assert
+            int a = calc.Add(s);
+            Assert.AreEqual(b, a);
+        }
+
 
     }
 }
