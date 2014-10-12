@@ -152,6 +152,25 @@ namespace CalculatorTests
             Assert.IsTrue(thrown);
 
         }
+        [TestMethod]
+        public void Testnewlines()
+        {
+            // arrange
+            Calculator calc = new Calculator();
+            string s = "";
+            Random rand = new Random();
+            int rnd = rand.Next(1000);
+            int rnd2 = rand.Next(1000);
+            int rnd3 = rand.Next(1000);
+            s = rnd.ToString() + "\n" + rnd2.ToString() + "," + rnd3.ToString();
+            // act
+            int b = rnd + rnd2 + rnd3;
+
+
+            // assert
+            int a = calc.Add(s);
+            Assert.AreEqual(b, a);
+        }
 
     }
 }

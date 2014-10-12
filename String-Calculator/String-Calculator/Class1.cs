@@ -12,7 +12,8 @@ namespace String_Calculator
         {
             if(numbers == "")
                 return 0;
-            string[] a = numbers.Split(',');
+            Char[] delimiters = { ',', '\n' };
+            string[] a = numbers.Split(delimiters);
             int[] b = new int[a.Length];
             
             for (int i = 0; i < a.Length; i++)
