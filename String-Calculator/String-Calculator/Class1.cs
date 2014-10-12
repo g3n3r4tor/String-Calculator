@@ -44,43 +44,43 @@ namespace String_Calculator
                 
             }
             string[] delimiters = delimiterList.ToArray();
-            string[] a = numbers.Split(delimiters,StringSplitOptions.RemoveEmptyEntries);
-            int[] b = new int[a.Length];
-            int[] narr = new int[a.Length];
+            string[] stringnumbers = numbers.Split(delimiters,StringSplitOptions.RemoveEmptyEntries);
+            int[] numberarr = new int[stringnumbers.Length];
+            int[] negarr = new int[stringnumbers.Length];
             int negcount = 0;
-            for (int i = 0; i < a.Length; i++)
+            for (int i = 0; i < stringnumbers.Length; i++)
             {
-                b[i] = Convert.ToInt32(a[i]);
-                if(b[i] < 0)
+                numberarr[i] = Convert.ToInt32(stringnumbers[i]);
+                if(numberarr[i] < 0)
                 {
-                    narr[negcount] = b[i];
+                    negarr[negcount] = numberarr[i];
                     negcount++;
                 }
             }
-            if (b.Length == 1)
-                return b[0];
+            if (numberarr.Length == 1)
+                return numberarr[0];
             if(negcount > 0)
             {
                 String s = "Negatives not allowed: ";
-                for (int i = 0; i < narr.Length; i++)
+                for (int i = 0; i < negarr.Length; i++)
                 {
-                    if (narr[i] != 0)
+                    if (negarr[i] != 0)
                     {
                         negcount--;
                         if (negcount == 0)
-                            s += narr[i];
+                            s += negarr[i];
                         else
-                            s += narr[i] + ",";
+                            s += negarr[i] + ",";
                     }
                 }
                 throw new NotSupportedException(s);
             }
             
             int sum = 0;
-            for (int i = 0; i < a.Length; i++)
+            for (int i = 0; i < stringnumbers.Length; i++)
             {
-                if(b[i] < 1001)
-                    sum += b[i];
+                if(numberarr[i] < 1001)
+                    sum += numberarr[i];
             }
             return sum;
         }

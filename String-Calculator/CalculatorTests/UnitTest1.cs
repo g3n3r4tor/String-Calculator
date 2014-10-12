@@ -294,7 +294,21 @@ namespace CalculatorTests
             int a = calc.Add(s);
             Assert.AreEqual(b, a);
         }
+        [TestMethod]
+        public void TestLengthyDelimiters()
+        {
+            // arrange
+            Calculator calc = new Calculator();
+            string s = "//[****][%%%][iii]\n1****2%%%3iii4";
 
+            // act
+            int b = 10;
+
+
+            // assert
+            int a = calc.Add(s);
+            Assert.AreEqual(b, a);
+        }
 
     }
 }
