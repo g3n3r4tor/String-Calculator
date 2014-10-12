@@ -25,12 +25,36 @@ namespace String_Calculator
             string[] delimiters = delimiterList.ToArray();
             string[] a = numbers.Split(delimiters,StringSplitOptions.RemoveEmptyEntries);
             int[] b = new int[a.Length];
+            int[] narr = new int[a.Length];
+            int negcount = 0;
             for (int i = 0; i < a.Length; i++)
             {
                 b[i] = Convert.ToInt32(a[i]);
+                if(b[i] < 0)
+                {
+                    narr[negcount] = b[i];
+                    negcount++;
+                }
             }
             if (b.Length == 1)
                 return b[0];
+            if(negcount > 0)
+            {
+                String s = "Negatives not allowed: ";
+                for (int i = 0; i < narr.Length; i++)
+                {
+                    if (narr[i] != 0)
+                    {
+                        negcount--;
+                        if (negcount == 0)
+                            s += narr[i];
+                        else
+                            s += narr[i] + ",";
+                    }
+                }
+                throw new NotSupportedException(s);
+            }
+            
             int sum = 0;
             for (int i = 0; i < a.Length; i++)
             {

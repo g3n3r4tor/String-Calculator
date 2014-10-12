@@ -190,6 +190,50 @@ namespace CalculatorTests
             int a = calc.Add(s);
             Assert.AreEqual(b, a);
         }
+        [TestMethod]
+        public void TestNegativeNumber()
+        {
+            // arrange
+            Calculator calc = new Calculator();
+            String s = "-1,2";
+            String a = "";
+            
+
+            // act
+            try
+            {
+                calc.Add(s);
+            }
+            catch (Exception e)
+            {
+                a = e.Message;
+            }
+
+            // assert
+            Assert.AreEqual("Negatives not allowed: -1", a);
+        }
+        [TestMethod]
+        public void TestNegativeNumbers()
+        {
+            // arrange
+            Calculator calc = new Calculator();
+            String s = "2,-4,3,-5";
+            String a = "";
+
+
+            // act
+            try
+            {
+                calc.Add(s);
+            }
+            catch (Exception e)
+            {
+                a = e.Message;
+            }
+
+            // assert
+            Assert.AreEqual("Negatives not allowed: -4,-5", a);
+        }
 
     }
 }
