@@ -89,6 +89,48 @@ namespace CalculatorTests
             Assert.AreEqual(b, a);
         }
         [TestMethod]
+        public void TestThreeRandomNumbers()
+        {
+            // arrange
+            Calculator calc = new Calculator();
+            string s = "";
+            Random rand = new Random();
+            int rnd = rand.Next(1000);
+            int rnd2 = rand.Next(1000);
+            int rnd3 = rand.Next(1000);
+            s = rnd.ToString() + "," + rnd2.ToString() + "," + rnd3.ToString();
+            // act
+            int b = rnd + rnd2 + rnd3;
+
+
+            // assert
+            int a = calc.Add(s);
+            Assert.AreEqual(b, a);
+        }
+        [TestMethod]
+        public void TestSixRandomNumbers()
+        {
+            // arrange
+            Calculator calc = new Calculator();
+            string s = "";
+            Random rand = new Random();
+            int rnd = rand.Next(1000);
+            int rnd2 = rand.Next(1000);
+            int rnd3 = rand.Next(1000);
+            int rnd4 = rand.Next(1000);
+            int rnd5 = rand.Next(1000);
+            int rnd6 = rand.Next(1000);
+            s = rnd.ToString() + "," + rnd2.ToString() + "," + rnd3.ToString() + "," + rnd4.ToString() 
+                + "," + rnd5.ToString() + "," + rnd6.ToString();
+            // act
+            int b = rnd + rnd2 + rnd3 + rnd4 + rnd5 + rnd6;
+
+
+            // assert
+            int a = calc.Add(s);
+            Assert.AreEqual(b, a);
+        }
+        [TestMethod]
         public void TestNaN()
         {
             // arrange

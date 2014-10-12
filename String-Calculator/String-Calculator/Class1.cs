@@ -22,7 +22,7 @@ namespace String_Calculator
             if (b.Length == 1)
                 return b[0];
             int sum = 0;
-            for (int i = 0; i < 2; i++)
+            for (int i = 0; i < a.Length; i++)
             {
                 sum += b[i];
             }
