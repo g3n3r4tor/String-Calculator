@@ -21,6 +21,19 @@ namespace String_Calculator
                 {
                     int index = numbers.IndexOf("]") - 3;
                     delimiterList.Add(numbers.Substring(3, index));
+                    numbers = numbers.Substring(numbers.IndexOf("]") + 1);
+                    while(true)
+                    {
+                        if (numbers.Substring(0, 1) == "[")
+                        {
+                            index = numbers.IndexOf("]") - 1;
+                            delimiterList.Add(numbers.Substring(1, index));
+                            numbers = numbers.Substring(numbers.IndexOf("]") + 1);
+                        }
+                        else
+                            break;
+                    }
+                    
                 }
                 else
                 {

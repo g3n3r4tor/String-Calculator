@@ -264,6 +264,36 @@ namespace CalculatorTests
             int a = calc.Add(s);
             Assert.AreEqual(b, a);
         }
+        [TestMethod]
+        public void TestTwoDelimiters()
+        {
+            // arrange
+            Calculator calc = new Calculator();
+            string s = "//[*][%]\n1*2%3";
+
+            // act
+            int b = 6;
+
+
+            // assert
+            int a = calc.Add(s);
+            Assert.AreEqual(b, a);
+        }
+        [TestMethod]
+        public void TestThreeDelimiters()
+        {
+            // arrange
+            Calculator calc = new Calculator();
+            string s = "//[*][%][i]\n1*2%3i4";
+
+            // act
+            int b = 10;
+
+
+            // assert
+            int a = calc.Add(s);
+            Assert.AreEqual(b, a);
+        }
 
 
     }
